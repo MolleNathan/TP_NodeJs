@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <link rel="stylesheet"  href="style.css" />
 </head>
 <body>
-$END$
+<div>
+<input type="text" placeholder="Enter your name" id="name"/>
+<input type="text" placeholder="Enter your surname" id="surname"/>
+<input type="text" placeholder="Enter your adress" id="adress"/>
+<input type="text" placeholder="Enter your pseudo" id="pseudo"/>
+<input type="text" placeholder="Enter your email" id="email"/>
+
+
+
+<input type="button" value="OK" onclick="valid()"/>
+</div>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+    function valid() {
+        $.get('', { name: $('#name').val(), surname: $('#surname').val(), adress: $('#adress').val(), pseudo: $('#pseudo').val(), email: $('#email').val() }, function(data) {
+            $('#message').html(data.message);
+        }, 'json');
+    }
+</script>
 </body>
 </html>
